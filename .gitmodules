@@ -1,3 +1,6 @@
 [submodule "_/source"]
 	path = _/source
 	url = https://github.com/OpenClassrooms-Student-Center/7150606-React-intermediaire
+[submodule "_/assets"]
+	path = _/assets
+	url = https://github.com/OpenClassrooms-Student-Center/7150606-React-intermediaire
