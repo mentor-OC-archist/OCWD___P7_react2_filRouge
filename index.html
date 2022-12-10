@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOUS LES EXOS DU COURS D'OC SUR: #####</title>
+    <title>TOUS LES EXOS DU COURS D'OC SUR: REACT 2</title>
     <link rel="stylesheet/less" type="text/css" href="assets/style.less">
+    <script src="./assets/less.js"></script>
 </head>
 
 <body>
@@ -33,13 +34,22 @@
 
         <p id="tasks_p"></p>
         
+        <p id="copypast">
+            <b>Cliquer sur l'un des 2 textes ci-dessous, pour le coller dans le terminal et arriver au projet concerné</b>
+            Depuis la racine de projet: <span id="from_root"></span> 
+            Depuis un exercice antérieur ("/_/begins/P#C#/"): <span id="from_inner"></span>
+        </p>
+        <a id="_begin" href="#" target="_blank"></a>
+        <a id="_sol" href="#" target="_blank"></a>
+        <a id="_SC" href="#" target="_blank"></a>
+        <button onclick="iframe.src=iframe.src">⟳</button>
         <iframe id="iframe" src="view-source:http://127.0.0.1:5500/index.html" frameborder="0"></iframe>
         <div class="">
             <button href="#" onclick="this.parentNode.classList.toggle('show')">
                 <span>Show (####) codes</span>
                 <span>^</span>
             </button>
-            <iframe id="iframe_sass" src="" frameborder="0"></iframe>
+            <iframe id="iframe_jsx" src="" frameborder="0"></iframe>
             <iframe id="iframe_css" src="" frameborder="0"></iframe>
         </div>
 
@@ -49,14 +59,17 @@
 
     <aside>
         <h2>Exercices solutionnés</h2>
-        <iframe width="560" height="315" src="https://youtu.be/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <hr/>
         <h2>Introduction et explications</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/G2RTGDm0tmE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </aside>
 
     <footer>
-        <a title="....Lien vers ressources...." target="_blank" href="####"><img src="./assets/img/oc.ico" alt="cours OC"></a>
+        <a title="Cours OC: React débutant" target="_blank" href="https://openclassrooms.com/fr/courses/7008001-debutez-avec-react"><img src="./assets/img/oc.ico" alt="cours OC"></a>
+        <a title="repo du fil rouge du cours" target="_blank" href="https://github.com/atoulmet/atoulmet-OC-React-Beginners"><img src="./assets/img/./fil_rouge.jpg" alt="repo cours"></a>
+        <a title="repo transformé (this repo)" target="_blank" href="https://github.com/mentor-OC-archist/OCWD___P7_react1_filRouge/tree/develop"><img src="./assets/img/./this_repo.jpg" alt="repo transformé"></a>
+        <a title="Documentation  REACT" target="_blank" href="https://reactjs.org/docs/getting-started.html"><img src="./assets/img/fond_react.png" style="height:124px" alt="Doc REACT"></a>
         <ul>
             <li>....DESCRIPTION....</li>
         </ul>

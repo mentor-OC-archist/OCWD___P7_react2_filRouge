@@ -1,6 +1,21 @@
 
         let index
 
+        function updateClipboard(elt) {
+            /* le presse-papier est correctement paramétré */
+            navigator.permissions.query({name: "clipboard-write"}).then(result => {
+                if (result.state == "granted" || result.state == "prompt") {
+                    navigator.clipboard.writeText(elt.innerHTML).then(function() {
+                        console.log("text copied: " + elt.innerHTML)
+                    
+                    }, function() {
+                        alert('copy permission rejected')
+                    })
+                } else alert('erreur copie')
+            })
+        }
+        Array.from(copypast.querySelectorAll('span')).map(elt=>{elt.addEventListener('click', (e)=>{updateClipboard(e.target)})})
+
         select.focus()
 
         for(index in jsonDatas){
@@ -28,13 +43,46 @@
             // alert(select.childNodes[select.selectedIndex].value)
             // console.log(select.querySelectorAll('option')[select.selectedIndex]);
             let opt = select.querySelectorAll('option')[select.selectedIndex]
+            console.log(opt.data);
             // alert(opt.value)
             document.location.hash = select.value
             // console.log(select.value);
 
-            iframe.src = "./_/"+select.value
-            iframe_sass.src = "./_/"+that.value+"/sass/main.scss"
-            iframe_css.src = "./_/"+select.value+"/public/css/style.css"
+            iframe.src = "http://localhost:3000"
+            iframe_jsx.src = opt.data.begin == "" || opt?.data?.begin?.indexOf('codepen') != -1 
+                ? ""
+                : "./_/begins/"+select.value+"/src/"
+            iframe_css.src = opt.data.begin == "" || opt?.data?.begin?.indexOf('codepen') != -1 
+                ? ""
+                : "./_/begins/"+select.value+"/src/styles"
+            _begin.href = opt?.data?.begin?.indexOf('codepen') != -1 
+                ? opt.data.begin
+                : ""
+            _begin.innerHTML = opt.data.begin.indexOf('codepen') != -1 
+                ? "Codepen Begin"
+                : opt.data.begin.indexOf('github')
+                    ? "Github Begin"
+                : ""
+            _sol.href = opt?.data?.sol?.indexOf('codepen') != -1 
+                ? opt.data.sol
+                : ""
+            _sol.innerHTML = opt.data.sol.indexOf('codepen') != -1 
+                ? "Codepen Solution"
+                : opt.data.sol.indexOf('github')
+                    ? "Github Solution"
+                    : ""
+            _SC.href = opt?.data?.liens?.[0]?.indexOf('vimeo') != -1 
+                ? opt.data.liens[0]
+                : ""
+            _SC.innerHTML = opt.data.liens?.[0].indexOf('vimeo') != -1 
+                ? "SCREENCAST vidéo"
+                : ""
+            
+            if(opt.data.begin != "" && opt.data.begin.indexOf('codepen') == -1){
+                copypast.className = ""
+                from_root.innerHTML = "cd ./_/begins/"+select.value+"; npm run start"
+                from_inner.innerHTML = "cd ../"+select.value+"; npm run start"
+            }else copypast.className = "off"
 
             h1.innerHTML = p.innerHTML = tasks_p.innerHTML = tasks_ol.innerHTML = ""
             h1.innerHTML = opt.data.h
